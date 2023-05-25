@@ -3,6 +3,14 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
   }
   
   h1, h2, h3, h4 {
@@ -11,41 +19,58 @@ body {
   
   /* Header Styles */
   header {
-    background-color: #f9f9f9;
+    background-color: #0f4c81;
     padding: 20px;
     text-align: center;
+    color: #fff;
   }
   
   .welcome-message {
-    font-size: 24px;
-    color: #333;
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
   
   .tagline {
     font-size: 18px;
-    color: #666;
+    margin-top: 10px;
+    opacity: 0.8;
   }
   
   /* Main Content Styles */
   main {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
   }
   
-  section {
-    margin-bottom: 30px;
+  .section-heading {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
   }
   
   .farm-overview, .weed-infestation, .progress-tracker, .help-support {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    margin-bottom: 30px;
     padding: 20px;
+    border-radius: 4px;
   }
   
-  .farm-overview h3, .weed-infestation h3, .progress-tracker h3, .help-support h3 {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 10px;
+  .farm-overview {
+    background-color: #fff;
+  }
+  
+  .weed-infestation {
+    background-color: #f9f9f9;
+  }
+  
+  .progress-tracker, .help-support {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   .farm-details {
@@ -56,23 +81,75 @@ body {
     background-color: #f2f2f2;
     height: 10px;
     border-radius: 4px;
+    margin-bottom: 10px;
+    position: relative;
   }
   
   .progress {
-    background-color: #4caf50;
     height: 100%;
+    border-radius: 4px;
+    background-image: linear-gradient(to right, #4caf50, #6be875);
+    transition: width 0.5s ease;
+  }
+  
+  .progress[data-percentage="100"] {
+    animation: progressComplete 0.5s ease forwards;
+  }
+  
+  @keyframes progressComplete {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  .progress-percentage {
+    position: absolute;
+    top: -18px;
+    right: 0;
+    font-size: 12px;
+    color: #555;
+  }
+  
+  .progress-percentage::after {
+    content: "%";
+  }
+  
+  .progress-text {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .progress-info span {
+    font-size: 14px;
+    color: #777;
   }
   
   .progress-tracker ul {
     list-style-type: none;
     padding: 0;
-    margin-left: 20px;
+    margin: 0;
   }
   
-  .help-support h4 {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 10px;
+  .progress-tracker li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .progress-tracker li:last-child {
+    border-bottom: none;
+  }
+  
+  .help-support {
+    padding-top: 0;
   }
   
   .faq {
@@ -82,13 +159,59 @@ body {
   .question {
     font-weight: bold;
     margin-bottom: 5px;
+    cursor: pointer;
   }
   
   .answer {
     margin-left: 20px;
+    color: #777;
+    display: none;
+  }
+  
+  .contact {
+    margin-top: 20px;
   }
   
   .contact p {
     margin: 5px 0;
+  }
+  
+  /* Accordion Styles */
+  .accordion {
+    background-color: #f9f9f9;
+    border: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  .accordion .question {
+    background-color: #eee;
+    color: #333;
+    cursor: pointer;
+    padding: 12px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .accordion .answer {
+    padding: 18px;
+    background-color: #f5f5f5;
+    display: none;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  .accordion .active,
+  .accordion .question:hover {
+    background-color: #ddd;
+  }
+  
+  .accordion .active .answer {
+    display: block;
+    max-height: 500px;
   }
   
