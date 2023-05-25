@@ -53,6 +53,28 @@ body {
   letter-spacing: 1px;
   margin-bottom: 20px;
   }
+
+  .farm-overview .section-heading {
+    color: #333;
+  }
+  
+  .farm-overview .card-slider-container {
+    overflow-x: auto;
+  }
+  
+  .farm-overview .card-slider {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  .farm-overview .card {
+    margin-right: 10px;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+  }
   
   .farm-overview .section-heading {
     color: #333;
@@ -64,6 +86,11 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
+  .farm-overview .card-img-top {
+    object-fit: cover;
+    height: 200px;
+  }
+  
   .farm-overview .card-body {
     padding: 20px;
   }
@@ -71,10 +98,16 @@ body {
   .farm-overview .card-title {
     font-size: 18px;
     font-weight: bold;
+    margin-bottom: 10px;
   }
   
-  .farm-overview .card-text {
-    margin-bottom: 10px;
+  .farm-overview .list-unstyled {
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .farm-overview .list-unstyled li {
+    margin-bottom: 5px;
   }
   
   @media (max-width: 768px) {
@@ -83,6 +116,99 @@ body {
       max-width: 100%;
     }
   }
+  
+  .farm-overview .start-scan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .farm-overview .wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .farm-overview .button {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #313133;
+    background: #4FD1C5;
+    background: linear-gradient(90deg, rgba(129, 230, 217, 1) 0%, rgba(79, 209, 197, 1) 100%);
+    border: none;
+    box-shadow: 12px 12px 24px rgba(79, 209, 197, .64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+  }
+  
+  .farm-overview .button::before {
+    content: '';
+    border-radius: 50%;
+    width: calc(120px + 12px);
+    height: calc(120px + 12px);
+    border: 6px solid #00FFCB;
+    box-shadow: 0 0 60px rgba(0, 255, 203, .64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+  }
+  
+  .farm-overview .button:hover,
+  .farm-overview .button:focus {
+    color: #313133;
+    transform: translateY(-6px);
+  }
+  
+  .farm-overview .button:hover::before,
+  .farm-overview .button:focus::before {
+    opacity: 1;
+  }
+  
+  .farm-overview .button::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    border: 6px solid #00FFCB;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+  }
+  
+  .farm-overview .button:hover::after,
+  .farm-overview .button:focus::after {
+    animation: none;
+    display: none;
+  }
+  
+  @keyframes ring {
+    0% {
+      width: 20px;
+      height: 20px;
+      opacity: 1;
+    }
+    100% {
+      width: 120px;
+      height: 120px;
+      opacity: 0;
+    }
+  }
+  
   
   
   .weed-infestation {
@@ -243,3 +369,7 @@ footer {
     color: #fff;
     font-size: 14px;
   }
+
+
+  /* css for scan page*/
+  

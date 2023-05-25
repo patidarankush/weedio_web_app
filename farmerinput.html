@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="farmerinput.css">
+  <title>Farmer Input Screen</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Farmer Input Screen</h1>
+    <form id="farmer-form">
+      <h2>Farm Information</h2>
+      <div class="form-group">
+        <label for="farm-size">Farm Size (in acres or hectares)</label>
+        <input type="text" id="farm-size" name="farm-size" placeholder="Enter farm size">
+      </div>
+
+      <div class="form-group">
+        <label for="crop-type">Crop Type or Types Grown</label>
+        <input type="text" id="crop-type" name="crop-type" placeholder="Enter crop type">
+      </div>
+
+      <div class="form-group">
+        <label for="cropping-history">Previous Cropping History</label>
+        <textarea id="cropping-history" name="cropping-history" placeholder="Enter previous cropping history"></textarea>
+      </div>
+
+      <h2>Previous Weed Control Measures</h2>
+      <div class="form-group">
+        <label for="herbicide-history">History of Herbicide Application</label>
+        <textarea id="herbicide-history" name="herbicide-history" placeholder="Enter history of herbicide application"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="mechanical-control">Mechanical or Manual Weed Control Methods Employed</label>
+        <textarea id="mechanical-control" name="mechanical-control" placeholder="Enter mechanical/manual weed control methods"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="weed-control-feedback">Feedback on Effectiveness of Previous Weed Control Measures</label>
+        <textarea id="weed-control-feedback" name="weed-control-feedback" placeholder="Enter feedback on weed control measures"></textarea>
+      </div>
+
+      <h2>Equipment and Resources</h2>
+      <div class="form-group">
+        <label for="equipment-availability">Availability of Specific Machinery or Equipment for Weed Control</label>
+        <textarea id="equipment-availability" name="equipment-availability" placeholder="Enter equipment availability"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="labor-availability">Labor Availability and Capacity for Weed Management Activities</label>
+        <textarea id="labor-availability" name="labor-availability" placeholder="Enter labor availability"></textarea>
+      </div>
+
+      <h2>Constraints or Limitations</h2>
+      <div class="form-group">
+        <label for="constraints">Constraints or Limitations</label>
+        <textarea id="constraints" name="constraints" placeholder="Enter constraints or limitations"></textarea>
+      </div>
+
+      <button type="submit" class="action-button" id="action-button">Submit</button>
+    </form>
+  </div>
+
+  <script src="farmerinput.js"></script>
+</body>
+
+</html>
