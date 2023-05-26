@@ -94,7 +94,9 @@
         // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
         // the link to your model provided by Teachable Machine export panel
-        const URL = 'https://teachablemachine.withgoogle.com/models/AojvAytZ6/';
+        //https://teachablemachine.withgoogle.com/models/yYdEidM-J/   -- newmodel
+        //https://teachablemachine.withgoogle.com/models/AojvAytZ6/   -- old model
+        const URL = 'https://teachablemachine.withgoogle.com/models/yYdEidM-J/';
 
         let model, webcam, labelContainer, maxPredictions;
 
@@ -163,25 +165,25 @@
                 // console.log(prediction[i].probability.toFixed(2));
 
                 if (i == 0 && prediction[i].probability.toFixed(2) > 0.50) {
-
+                    labelContainer.childNodes[i].innerHTML = "Pig weed";
                     labelContainer.childNodes[i].style.backgroundColor = '#3A5A40';
                     labelContainer.childNodes[i].style.color = '#DAD7CD';
                     labelContainer.childNodes[i].style.fontSize = '1.5em';
 
                 } else if (i == 1 && prediction[i].probability.toFixed(2) > 0.50) {
-
+                    labelContainer.childNodes[i].innerHTML = "Bermoda grass";
                     labelContainer.childNodes[i].style.backgroundColor = '#3A5A40';
                     labelContainer.childNodes[i].style.color = '#DAD7CD';
                     labelContainer.childNodes[i].style.fontSize = '1.5em';
 
                 } else if (i == 2 && prediction[i].probability.toFixed(2) > 0.50) {
-
+                    labelContainer.childNodes[i].innerHTML = "Hazar dana";
                     labelContainer.childNodes[i].style.backgroundColor = '#3A5A40';
                     labelContainer.childNodes[i].style.color = '#DAD7CD';
                     labelContainer.childNodes[i].style.fontSize = '1.5em';
 
                 } else if (i == 3 && prediction[i].probability.toFixed(2) > 0.50) {
-
+                    labelContainer.childNodes[i].innerHTML = "Jharwa";
                     labelContainer.childNodes[i].style.backgroundColor = '#3A5A40';
                     labelContainer.childNodes[i].style.color = '#DAD7CD';
                     labelContainer.childNodes[i].style.fontSize = '1.5em';
