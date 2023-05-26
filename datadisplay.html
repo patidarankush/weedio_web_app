@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Live Sensor Data</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Sensor Data Styles */
+    .sensor-data {
+      margin-bottom: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      background-color: #ffffff;
+    }
+    
+    .sensor-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333333;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .sensor-icon {
+      margin-right: 10px;
+    }
+    
+    .sensor-value {
+      font-size: 18px;
+      color: #555555;
+    }
+    
+    .sensor-label {
+      display: inline-block;
+      background-color: #4c8bf5;
+      color: #ffffff;
+      padding: 5px 10px;
+      border-radius: 3px;
+      font-size: 14px;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sensor-data">
+      <h2 class="sensor-title"><i class="fas fa-thermometer-half sensor-icon"></i>Temperature</h2>
+      <p class="sensor-value" id="temperature-value">Fetching data...</p>
+    </div>
+    
+    <div class="sensor-data">
+      <h2 class="sensor-title"><i class="fas fa-tint sensor-icon"></i>Humidity</h2>
+      <p class="sensor-value" id="humidity-value">Fetching data...</p>
+    </div>
+    
+    <div class="sensor-data">
+      <h2 class="sensor-title"><i class="fas fa-leaf sensor-icon"></i>Weed Detected</h2>
+      <p class="sensor-value" id="weed-detected-value">Fetching data...</p>
+    </div>
+    
+    <div class="sensor-data">
+      <h2 class="sensor-title"><i class="fas fa-tint sensor-icon"></i>Soil Moisture</h2>
+      <p class="sensor-value" id="soil-moisture-value">Fetching data...</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+        <div class="Home">
+            <div class="wrap">
+              <button id="home" class="button">Home</button> <!--onclick="location.href = 'scan.html';" id="myButton" class="float-left submit-button"-->
+            </div>
+          </div>
+    </div>
+</div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script>
+    // Fetch data from server endpoint at regular intervals
+    setInterval(fetchSensorData, 5000); // Fetch data every 5 seconds
+    
+    function fetchSensorData() {
+      fetch('https://weedio-3jk7.onrender.com/data')
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
+          // Update sensor values
+          document.getElementById('temperature-value').textContent = data.temperature + ' °C';
+          document.getElementById('humidity-value').textContent = data.humidity + ' %';
+          document.getElementById('weed-detected-value').textContent = data.weedDetected ? 'Yes' : 'No';
+          document.getElementById('soil-moisture-value').textContent = data.soilMoisture + ' %';
+        })
+        .catch(function(error) {
+          console.error('Error fetching sensor data:', error);
+        });
+    }
+  </script>
+  <script>
+      // Wrap the event listener in a DOMContentLoaded event handler to ensure the button element is available in the DOM
+document.addEventListener("DOMContentLoaded", () => {
+    // Get the "Start Scan" button element
+    const startScanButton = document.getElementById("Home");
+  
+    // Check if the button element exists
+    if (startScanButton) {
+      // Add a click event listener to the button
+      startScanButton.addEventListener("click", () => {
+        // Redirect the user to scan.html
+        window.location.href = "index.html";
+      });
+    }
+  });
+  </script>
+</body>
+</html>
